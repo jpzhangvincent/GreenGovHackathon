@@ -41,12 +41,16 @@ dashboardPage(
             tabBox(
               width = 12,
               tabPanel(
-                title = strong("smallTab 1.1"),
+                title = strong("Emission by type"),
                 column(
-                  width=3
+                  width=3,
+                  uiOutput("DepartmentSelector"),
+                  helpText("You can select a department for CO2 emission."),
+                  actionButton("DepartmentButton","See Visualization!")
                 ),
                 column(
-                  width=9
+                  width=9,
+                  showOutput("CO2Plot1", "nvd3")
                 )
               )
             )
