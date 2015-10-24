@@ -36,18 +36,80 @@ dashboardPage(
           )}, # this is the welcome tab. 
         
         {tabPanel(
-          title = strong("Tab 1"),
+          title = strong("CO2e"),
+          fluidRow(
+            tabBox(
+              width = 12,
+              tabPanel(
+                title = strong("smallTab 1.1"),
+                column(
+                  width=3
+                ),
+                column(
+                  width=9
+                )
+              )
+            )
+          )
+        )}, # this is the CO2e tab.
+        
+        {tabPanel(
+          title = strong("State Buildings Energy Use"),
           fluidRow(
             tabBox(
               width = 12,
               tabPanel(
                 title = strong("Tab 1.1"),
-                column(width=3),
-                column(width=9)
+                column(
+                  width=3,
+                  uiOutput("buildingBasicUnitSelector"),
+                  helpText("You can select an individual building or an entire department."),
+                  actionButton("buildingBasicUnitButton","See Visualization!")
+                ),
+                column(
+                  width=9,
+                  showOutput("buildingPlot1", "nvd3")
+                )
               )
             )
           )
-        )} # this is the first tab.
+        )}, # this is the building tab.
+        
+        {tabPanel(
+          title = strong("Fleet Program"),
+          fluidRow(
+            tabBox(
+              width = 12,
+              tabPanel(
+                title = strong("Tab 1.1"),
+                column(
+                  width=3
+                ),
+                column(
+                  width=9
+                )
+              )
+            )
+          )
+        )}, # this is the fleet tab.
+        
+        {tabPanel(
+          title = strong("Waste Management"),
+          fluidRow(
+            tabBox(
+              width = 12,
+              tabPanel(
+                title = strong("Tab 1.1"),
+                column(
+                  width=3
+                ),
+                column(
+                  width=9
+                )
+              )
+            )
+          )
+        )} # this is the waste management tab.
       )
     }) # this divides the entire visualization top level parallel tabs
   )
